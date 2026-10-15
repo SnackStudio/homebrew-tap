@@ -16,11 +16,17 @@ cask "peel" do
   depends_on macos: :ventura
 
   app "Peel.app"
+  binary "#{appdir}/Peel.app/Contents/Resources/peel"
+  manpage "#{appdir}/Peel.app/Contents/Resources/peel.1"
+  bash_completion "#{appdir}/Peel.app/Contents/Resources/completions/peel.bash"
+  fish_completion "#{appdir}/Peel.app/Contents/Resources/completions/peel.fish"
+  zsh_completion "#{appdir}/Peel.app/Contents/Resources/completions/_peel"
 
   zap trash: [
     "~/Library/Application Support/Peel",
     "~/Library/Caches/Peel",
     "~/Library/HTTPStorages/io.snackstud.peel",
+    "~/Library/Logs/Peel",
     "~/Library/Preferences/io.snackstud.peel.plist",
     "~/Library/Services/Peel & Reveal.workflow",
     "~/Library/Services/Peel Here.app",
