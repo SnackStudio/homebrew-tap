@@ -1,31 +1,38 @@
 cask "peel" do
-  version "1.0.0"
-  sha256 "74a67e43eca891891ca7dad4febb7e795cb80d78665e1fcf6b4b14df11f39123"
+  version "1.1.0"
+  sha256 "c167824788ba478940ee26acc26d1f8a6ecf9e48094c082e7150056e746a7573"
 
-  url "https://github.com/SnackStudio/peel-releases/releases/download/v#{version}/Peel-#{version}.dmg"
+  url "https://github.com/SnackStudio/peel-releases/releases/download/v#{version}/Peel-#{version}.pkg"
   name "Peel"
   desc "Open archives like folders: ZIP, RAR, 7z and TAR"
-  homepage "https://www.snackstud.io/peel"
+  homepage "https://filesunwrapped.com/"
 
   livecheck do
-    url "https://www.snackstud.io/peel/appcast.xml"
+    url "https://filesunwrapped.com/appcast.xml"
     strategy :sparkle, &:short_version
   end
 
   auto_updates true
   depends_on macos: :ventura
 
-  app "Peel.app"
+  # The installer package registers Peel and its extensions for the user
+  # (docs/installer.md). Command-line installs don't open Peel afterwards.
+  pkg "Peel-#{version}.pkg"
+
+  uninstall quit:    "io.snackstud.peel",
+            pkgutil: "io.snackstud.peel.pkg",
+            delete:  "/Applications/Peel.app"
 
   zap trash: [
     "~/Library/Application Support/Peel",
     "~/Library/Caches/Peel",
     "~/Library/HTTPStorages/io.snackstud.peel",
+    "~/Library/Logs/Peel",
     "~/Library/Preferences/io.snackstud.peel.plist",
     "~/Library/Services/Peel & Reveal.workflow",
     "~/Library/Services/Peel Here.app",
     "~/Library/Services/Peel to….workflow",
-    "~/Library/Services/Peel.workflow",
     "~/Library/Services/peel-here.sh",
+    "~/Library/Services/Peel.workflow",
   ]
 end
