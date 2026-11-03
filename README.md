@@ -6,4 +6,4 @@ brew install --cask snackstudio/tap/peel
 
 | Cask | App |
 | --- | --- |
-| `peel` | [Peel](https://www.snackstud.io/peel): open archives like folders on macOS |
+| `peel` | [Peel](https://filesunwrapped.com): a free Mac unarchiver that opens ZIP, RAR, 7z and TAR archives like folders in Finder |
