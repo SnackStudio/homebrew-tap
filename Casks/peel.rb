@@ -1,6 +1,6 @@
 cask "peel" do
-  version "1.3.2"
-  sha256 "ae870f90542a5f95e50cd5aa8ac2383c019b125159bb55811511b65fdf5ebb02"
+  version "1.4.0"
+  sha256 "c7230543d59e00328316aa5aa31f99015aee66cfe777fb8face7f64fa0b2543f"
 
   url "https://github.com/SnackStudio/peel-releases/releases/download/v#{version}/Peel-#{version}.pkg"
   name "Peel"
